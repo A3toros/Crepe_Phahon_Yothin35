@@ -1,13 +1,67 @@
 $(document).ready(function() {
-    let selections = { sauce: null, filling: null, topping: null };
+    let selections = { type: null, sauce: null, filling: null, topping: null };
     let translations = {}; // To store translations
 
     // Food options stored in JS (keys remain in English)
-    let foodOptions = {
+    const sweetOptions = {
         sauce: ["Nutella", "Caramel", "Chocolate", "Strawberry", "Maple Syrup", "Honey", "Butterscotch"],
         filling: ["Banana", "Strawberry", "Blueberry", "Custard", "Jam", "Cream", "Apple"],
         topping: ["Sprinkles", "Almonds", "Coconut", "Powdered Sugar", "Fresh Fruits", "Chocolate Chips", "Hazelnuts"]
     };
+
+    const savoryOptions = {
+        sauce: ["Chili Sauce", "Pizza Sauce"],
+        filling: ["Pulled Pork", "Crabstick", "Ham", "Sausage", "Egg", "Spinach", "Cheese"],
+        topping: ["Ketchup", "Chili", "Mayonnaise"]
+    };
+
+    let foodOptions = {}; // Will be set based on selection
+
+    // Initially hide the main content
+    $("#main-content").hide();
+
+    // Add type selection HTML
+    const typeSelectionHtml = `
+        <div id="type-selection" class="text-center mb-4">
+            <h3 id="what-crepe" class="mb-3">What kind of Crepe do you want?</h3>
+            <button id="sweet-btn" class="btn btn-primary mx-2">Sweet</button>
+            <button id="savory-btn" class="btn btn-primary mx-2">Savory</button>
+        </div>
+    `;
+    $("#title").after(typeSelectionHtml);
+
+    // Type selection button handlers
+    $("#sweet-btn").click(function() {
+        selections.type = "sweet";
+        foodOptions = sweetOptions;
+        $("#type-selection").hide();
+        $("#main-content").show();
+        $("#ingredient-selection").show();
+        resetSelections();
+    });
+
+    $("#savory-btn").click(function() {
+        selections.type = "savory";
+        foodOptions = savoryOptions;
+        $("#type-selection").hide();
+        $("#main-content").show();
+        $("#ingredient-selection").show();
+        resetSelections();
+    });
+
+    function resetSelections() {
+        selections.sauce = null;
+        selections.filling = null;
+        selections.topping = null;
+        $("#selected-sauce").text(translations.none || "None");
+        $("#selected-filling").text(translations.none || "None");
+        $("#selected-topping").text(translations.none || "None");
+        $("#error-message").text("");
+        $("#result-img").hide();
+        $("#hide-photo").hide();
+        $("#make-crepe").show();
+        $(".form-select").remove();
+    }
 
     let defaultDropdownText = "Select an option"; // fallback
 
@@ -17,10 +71,13 @@ $(document).ready(function() {
             if (data[lang]) {
                 translations = data[lang]; // Save translations
     
+                // Update type selection texts
+                $("#what-crepe").text(translations["what-crepe"]);
+                $("#sweet-btn").text(translations["sweet-crepe"]);
+                $("#savory-btn").text(translations["savory-crepe"]);
+    
                 // Update headings and button texts
-                $("#sauce-title").text(translations["sauce-title"]);
-                $("#filling-title").text(translations["filling-title"]);
-                $("#topping-title").text(translations["topping-title"]);
+                $("#title").text(translations.title);
                 $("#make-crepe").text(translations.makeCrepe);
                 $("#hide-photo").text(translations.hidePhoto);
                 $("#error-message").text(""); // clear error message
@@ -61,7 +118,7 @@ $(document).ready(function() {
         return foodOptions[type].map(food => translations[food] || food);
     }
 
-    // When a "choose" button is clicked, open a dropdown with food names (no "Select an option" line)
+    // When a "choose" button is clicked, open a dropdown with food names
     $(".choose-btn").click(function() {
         let type = $(this).data("type");
 
@@ -136,6 +193,12 @@ $(document).ready(function() {
                 element.textContent = translations[key];
             }
         });
+
+        // Update welcome text
+        const welcomeText = document.getElementById('welcome-text');
+        if (welcomeText && translations['welcome-text']) {
+            welcomeText.textContent = translations['welcome-text'];
+        }
 
         // Update address section
         const addressTitle = document.getElementById('address-title');

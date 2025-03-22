@@ -31,9 +31,3 @@ git clone https://github.com/[your-username]/Crepe_Phahon_Yothin35.git
 
 The website automatically defaults to Thai language and supports switching between Thai and English. Language preference is preserved across sessions using localStorage.
 
-## Contact
-
-Located at:
-13/16 Paholyothin 35 Road
-Lat Yao, Chatuchak
-Bangkok 10900 

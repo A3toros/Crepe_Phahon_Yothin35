@@ -42,7 +42,11 @@
         "address-title": "Crepe Paholyothin 35",
         "address-line1": "13/16 Paholyothin 35 Road",
         "address-line2": "Lat Yao, Chatuchak",
-        "address-line3": "Bangkok 10900"
+        "address-line3": "Bangkok 10900",
+        "welcome-text": "We are glad to welcome you to our Crepe Shop! We always treat our guests with utmost care and respect and make crepes with love, trying to make sure we deliver the best experience possible.",
+        "what-crepe": "What kind of Crepe do you want?",
+        "sweet-crepe": "Sweet",
+        "savory-crepe": "Savory"
     },
     "th": {
         "nav-home": "หน้าหลัก",
@@ -87,6 +91,10 @@
         "address-title": "เครปพหลโยธิน 35",
         "address-line1": "เลขที่ 13/16 ถนนพหลโยธิน 35",
         "address-line2": "ลาดยาว จตุจัตร Lat Yao, Chatuchak",
-        "address-line3": "Bangkok 10900"
+        "address-line3": "Bangkok 10900",
+        "welcome-text": "ยินดีต้อนรับสู่ร้านเครปของเรา! เรามุ่งมั่นให้บริการลูกค้าด้วยความเอาใจใส่และเคารพ พร้อมทั้งทำเครปด้วยความรัก เพื่อมอบประสบการณ์ที่ดีที่สุดให้กับทุกท่าน",
+        "what-crepe": "คุณต้องการเครปแบบไหน?",
+        "sweet-crepe": "หวาน",
+        "savory-crepe": "รสชาติ"
     }
 }
