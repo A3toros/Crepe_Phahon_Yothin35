@@ -319,6 +319,7 @@ $(document).ready(function() {
         if (welcomeHeading && translations['welcome-heading']) {
             welcomeHeading.textContent = translations['welcome-heading'];
         }
+<<<<<<< HEAD
 
         // Update menu table items
         document.querySelectorAll('[id^="menu-"]').forEach(element => {
@@ -327,6 +328,8 @@ $(document).ready(function() {
                 element.textContent = translations[key];
             }
         });
+=======
+>>>>>>> 7b9d1d4dbc5f290f9bb1fb86e323e507ffb9d5f7
     }
     document.getElementById('menu-sauces-free').style.backgroundColor = '#8cbcf3';
     document.getElementById('menu-sweet').style.backgroundColor = '#8cbcf3';

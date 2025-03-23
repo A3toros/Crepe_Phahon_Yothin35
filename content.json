@@ -59,6 +59,7 @@
         "Egg": "Egg",
         "Spinach": "Spinach",
         "Cheese": "Cheese",
+<<<<<<< HEAD
         "welcome-heading": "Welcome to Our Crepe Shop",
         "gallery-text-1": "Nutella, Ovaltine Powder, Cashew nuts",
         "gallery-text-2": "Strawberry sauce, Stawberry jelly, Caramel",
@@ -153,6 +154,9 @@
         "menu-white-chocolate-chips": "White Chocolate Chips",
         "menu-no-sauce": "No Sauce",
         "menu-oregano": "Oregano"
+=======
+        "welcome-heading": "Welcome to Our Crepe Shop"
+>>>>>>> 7b9d1d4dbc5f290f9bb1fb86e323e507ffb9d5f7
     },
     "th": {
         "nav-home": "หน้าหลัก",
@@ -213,6 +217,7 @@
         "Egg": "ไข่",
         "Spinach": "ผักขม",
         "Cheese": "ชีส",
+<<<<<<< HEAD
         "welcome-heading": "ยินดีต้อนรับสู่ร้านเครปของเรา",
         "gallery-text-1": "นูเทลล่า, ผงโอวัลติน, เม็ดมะม่วงหิมพานต์",
         "gallery-text-2": "ฟิลลิ่งสตอเบอรี่, เยลลี่สตอเบอรี่, คาราเมล",
@@ -307,5 +312,8 @@
         "menu-white-chocolate-chips": "ช็อกโกแลตชิพขาว",
         "menu-no-sauce": "ไม่ใส่ซอส",
         "menu-oregano": "ออริกาโน"
+=======
+        "welcome-heading": "ยินดีต้อนรับสู่ร้านเครปของเรา"
+>>>>>>> 7b9d1d4dbc5f290f9bb1fb86e323e507ffb9d5f7
     }
 }
