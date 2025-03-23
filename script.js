@@ -1,6 +1,29 @@
 $(document).ready(function() {
     let selections = { type: null, sauce: null, filling: null, topping: null };
     let translations = {}; // To store translations
+    let currentLang = 'en';
+
+    // Array of crepe images (18 images total)
+    const crepeImages = [
+        'Nutella_Cashew_Nut_Chocolate.jpg',
+        'Strawberry_Strawberry_Jelly_Honey.jpg',
+        'Nutella_Banana_Sprinkles.jpg',
+        'No_Sauce_Pulled_Pork_Ketchup.jpg',
+        'No_Sauce_Ham_Chili.jpg',
+        'IMG_20230508_180956.jpg',
+        'IMG_20230508_185544.jpg',
+        'IMG_20230508_193434.jpg',
+        'IMG_20230508_202037.jpg',
+        'IMG_20230428_185718.jpg',
+        'IMG_20230428_185722.jpg',
+        'IMG_20230428_204714.jpg',
+        'IMG_20230502_193434.jpg',
+        'IMG_20230504_183223.jpg',
+        'IMG_20230504_192042.jpg',
+        'IMG_20230504_193641.jpg',
+        'IMG_20230324_202822.jpg',
+        'IMG_20230324_211506.jpg'
+    ];
 
     // Food options stored in JS (keys remain in English)
     const sweetOptions = {
@@ -10,7 +33,7 @@ $(document).ready(function() {
     };
 
     const savoryOptions = {
-        sauce: ["Chili Sauce", "Pizza Sauce"],
+        sauce: ["No Sauce", "Chili Sauce", "Pizza Sauce"],
         filling: ["Pulled Pork", "Crabstick", "Ham", "Sausage", "Egg", "Spinach", "Cheese"],
         topping: ["Ketchup", "Chili", "Mayonnaise"]
     };
@@ -65,11 +88,61 @@ $(document).ready(function() {
 
     let defaultDropdownText = "Select an option"; // fallback
 
+    // Function to create gallery items
+    function createGallery() {
+        const galleryRow = document.querySelector('.gallery-container .row');
+        if (!galleryRow) return; // Exit if row not found
+
+        // Clear existing gallery items
+        galleryRow.innerHTML = '';
+
+        // Create 6 rows with 3 images each
+        for (let i = 0; i < 6; i++) {
+            const row = document.createElement('div');
+            row.className = 'row g-4 mb-4';
+
+            for (let j = 0; j < 3; j++) {
+                const col = document.createElement('div');
+                col.className = 'col-md-4';
+
+                const imageIndex = i * 3 + j;
+                const imagePath = `images/crepes/${crepeImages[imageIndex]}`;
+
+                col.innerHTML = `
+                    <div class="gallery-item">
+                        <a href="${imagePath}" data-lightbox="gallery" data-title="${translations[`gallery-description-${imageIndex + 1}`] || `Description ${imageIndex + 1}`}">
+                            <img src="${imagePath}" alt="Crepe ${imageIndex + 1}" class="img-fluid rounded">
+                        </a>
+                        <div class="text-center mt-2">
+                            <p id="gallery-text-${imageIndex + 1}" class="mb-0" style="border: none; text-decoration: none;">${translations[`gallery-text-${imageIndex + 1}`] || `text here ${imageIndex + 1}`}</p>
+                        </div>
+                    </div>
+                `;
+
+                row.appendChild(col);
+            }
+
+            galleryRow.appendChild(row);
+        }
+
+        // Configure lightbox
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'albumLabel': 'Image %1 of %2',
+            'fadeDuration': 300,
+            'imageFadeDuration': 300,
+            'positionFromTop': 50,
+            'showImageNumberLabel': true
+        });
+    }
+
     // Load translations from JSON (content.json)
     function loadContent(lang) {
         $.getJSON("content.json", function(data) {
             if (data[lang]) {
                 translations = data[lang]; // Save translations
+                currentLang = lang;
     
                 // Update type selection texts
                 $("#what-crepe").text(translations["what-crepe"]);
@@ -95,6 +168,11 @@ $(document).ready(function() {
 
                 // Update contact page content
                 updateContent();
+
+                // Create gallery if on gallery page
+                if (document.querySelector('.gallery-container')) {
+                    createGallery();
+                }
             }
         });
     }
@@ -172,15 +250,28 @@ $(document).ready(function() {
     });
 
     $("#hide-photo").click(function() {
-        selections = { sauce: null, filling: null, topping: null };
+        // Reset all selections
+        selections = { type: null, sauce: null, filling: null, topping: null };
+        
+        // Hide result image and hide photo button
         $("#result-img").hide();
+        $("#hide-photo").hide();
+        
+        // Reset all selected text displays
         $("#selected-sauce").text(translations.none || "None");
         $("#selected-filling").text(translations.none || "None");
         $("#selected-topping").text(translations.none || "None");
         $("#error-message").text("");
-        $("#hide-photo").hide();
+        
+        // Remove any dropdowns
         $(".form-select").remove();
-        $("#make-crepe").show();  // Show the "Make a Crepe" button again
+        
+        // Show the make crepe button
+        $("#make-crepe").show();
+        
+        // Hide the main content and show type selection
+        $("#main-content").hide();
+        $("#type-selection").show();
     });
     
     function updateContent() {
@@ -194,13 +285,19 @@ $(document).ready(function() {
             }
         });
 
+        // Update gallery heading
+        const galleryHeading = document.getElementById('gallery-heading');
+        if (galleryHeading && translations['gallery-heading']) {
+            galleryHeading.textContent = translations['gallery-heading'];
+        }
+
         // Update welcome text
         const welcomeText = document.getElementById('welcome-text');
         if (welcomeText && translations['welcome-text']) {
             welcomeText.textContent = translations['welcome-text'];
         }
 
-        // Update address section
+        // Update address section - only on contact page
         const addressTitle = document.getElementById('address-title');
         const addressLine1 = document.getElementById('address-line1');
         const addressLine2 = document.getElementById('address-line2');
@@ -211,10 +308,27 @@ $(document).ready(function() {
         if (addressLine2) addressLine2.textContent = translations['address-line2'];
         if (addressLine3) addressLine3.textContent = translations['address-line3'];
 
-        // Update location heading
-        const locationHeading = document.querySelector('h1');
+        // Update location heading - only on contact page
+        const locationHeading = document.getElementById('location-heading');
         if (locationHeading) {
             locationHeading.textContent = translations['location-heading'];
         }
+
+        // Update welcome heading
+        const welcomeHeading = document.getElementById('welcome-heading');
+        if (welcomeHeading && translations['welcome-heading']) {
+            welcomeHeading.textContent = translations['welcome-heading'];
+        }
+
+        // Update menu table items
+        document.querySelectorAll('[id^="menu-"]').forEach(element => {
+            const key = element.id;
+            if (translations[key]) {
+                element.textContent = translations[key];
+            }
+        });
     }
+    document.getElementById('menu-sauces-free').style.backgroundColor = '#8cbcf3';
+    document.getElementById('menu-sweet').style.backgroundColor = '#8cbcf3';
+    document.getElementById('menu-savory').style.backgroundColor = '#8cbcf3';
 });

@@ -6,17 +6,35 @@ body {
 }
 
 .navbar {
-    background-color: blue;
+    background-color: #6f42c1;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-logo {
+    height: 50px;
+    margin-right: 2rem;
+}
+
+.navbar-nav {
+    margin-right: auto;
+}
+
+.nav-link {
+    color: white;
+    font-size: 1.1rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .navbar a {
     color: white !important;
     padding: 10px;
     margin: 5px;
-}
-
-.navbar-logo {
-    max-height: 50px;
 }
 
 .banner img {
@@ -117,4 +135,63 @@ h1 {
 .address-info p {
     color: #666;
     line-height: 1.6;
+}
+#menu-title {
+    margin-top: 5%;
+}
+
+
+.menu-table {
+    background-color: #ffebee;
+    width: 100%;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.menu-table th,
+.menu-table td {
+    padding: 0.5rem;
+    text-align: left;
+    border: 1px solid #e8d2f5d8;
+    font-size: 1.1rem;
+    background-color: #d9e1f5;
+    margin: 0;
+}
+
+.menu-table th {
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-color: #4eb934;
+}
+
+/* Make first 5 rows bold */
+.menu-table tr:nth-child(-n+5) {
+    font-weight: bold;
+    background-color: #4b0711;
+}
+
+/* Full width rows */
+.menu-table tr.full-width td {
+    width: 100%;
+}
+
+/* Regular rows */
+.menu-table tr:not(.full-width) td:last-child {
+    text-align: right;
+}
+
+/* Table container */
+.table-container {
+    overflow-x: auto;
+}
+
+/* Make text more readable */
+.menu-table td {
+    line-height: 1.4;
+}
+
+/* Highlight cell for free items */
+.highlight-cell {
+    font-weight: bold;
 }
