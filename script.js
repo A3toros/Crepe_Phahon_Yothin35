@@ -328,7 +328,40 @@ $(document).ready(function() {
             }
         });
     }
-    document.getElementById('menu-sauces-free').style.backgroundColor = '#8cbcf3';
-    document.getElementById('menu-sweet').style.backgroundColor = '#8cbcf3';
-    document.getElementById('menu-savory').style.backgroundColor = '#8cbcf3';
+    document.getElementById('menu-sauces-free').style.backgroundColor = '#5a9eec';
+    document.getElementById('menu-sweet').style.backgroundColor = '#5a9eec';
+    document.getElementById('menu-savory').style.backgroundColor = '#5a9eec';
+    function centerGalleryImages() {
+        if ($(window).width() <= 768) {
+            $('.gallery-container .row').css({
+                'display': 'flex',
+                'flex-wrap': 'wrap',
+                'justify-content': 'center'
+            });
+
+            $('.gallery-container .col-md-4').css({
+                'display': 'flex',
+                'justify-content': 'center',
+                'align-items': 'center',
+                'width': '100%',
+                'margin-bottom': '1rem'
+            });
+
+            $('.gallery-item img').css({
+                'max-width': '100%',
+                'height': 'auto',
+                'display': 'block',
+                'margin': '0 auto'
+            });
+        } else {
+            // Reset styles for larger screens
+            $('.gallery-container .row, .gallery-container .col-md-4, .gallery-item img').removeAttr('style');
+        }
+    }
+
+    // Initial call
+    centerGalleryImages();
+
+    // Reapply on window resize
+    $(window).resize(centerGalleryImages);
 });

@@ -311,7 +311,7 @@
 }
 
 /* Mobile styles */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 768px) {
     .navbar {
         padding: 0.5rem;
         background-color: #6f42c1;
@@ -373,5 +373,29 @@
         height: 15px;
         margin-right: 4px;
     }
-}
 
+
+    .gallery-container .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .gallery-container .col-md-4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .gallery-item img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .menu-table tr:nth-child(-n+5) {
+        font: 12px;
+    }
+}

@@ -138,6 +138,8 @@ h1 {
 }
 #menu-title {
     margin-top: 5%;
+    font-weight: bold;
+    font-size: 28px;
 }
 
 
@@ -168,7 +170,7 @@ h1 {
 /* Make first 5 rows bold */
 .menu-table tr:nth-child(-n+5) {
     font-weight: bold;
-    background-color: #4b0711;
+    background-color: #5a9eec;
 }
 
 /* Full width rows */
