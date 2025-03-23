@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crepe Customization</title>
+  <title>Crepe Shop</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css_for_mobiles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
 </head>
 <body>
 
@@ -14,11 +16,17 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <img src="images/Logo.png" alt="Logo" class="navbar-logo">
-    <div class="collapse navbar-collapse">
+    <div class="navbar-toggler-container">
+        <span class="menu-label">Menu</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item"><a id="nav-home" class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a id="nav-make_your_own_crepe" class="nav-link" href="make_your_own_crepe.html">Make your own crepe</a></li>
-        <li class="nav-item"><a id="nav-gallery" class="nav-link" href="#">Gallery</a></li>
+        <li class="nav-item"><a id="nav-gallery" class="nav-link" href="gallery.html">Gallery</a></li>
         <li class="nav-item"><a id="nav-contact" class="nav-link" href="contact_us.html">Contact Us</a></li>
       </ul>
     </div>
@@ -50,7 +58,7 @@
       </div>
       <div class="col-md-8 d-flex align-items-center">
         <div>
-          <h1 class="mb-4">Welcome to Our Crepe Shop</h1>
+          <h1 id="welcome-heading" class="mb-4">Welcome to Our Crepe Shop</h1>
           <p id="welcome-text" class="lead">We are glad to welcome you to our Crepe Shop! We always treat our guests with utmost care and respect and make crepes with love, trying to make sure we deliver the best experience possible.</p>
         </div>
       </div>
@@ -58,7 +66,8 @@
   </div>
 </div>
 
-<script src="script.js"></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 

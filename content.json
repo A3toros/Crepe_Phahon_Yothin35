@@ -46,7 +46,20 @@
         "welcome-text": "We are glad to welcome you to our Crepe Shop! We always treat our guests with utmost care and respect and make crepes with love, trying to make sure we deliver the best experience possible.",
         "what-crepe": "What kind of Crepe do you want?",
         "sweet-crepe": "Sweet",
-        "savory-crepe": "Savory"
+        "savory-crepe": "Savory",
+        "Chili Sauce": "Chili Sauce",
+        "Pizza Sauce": "Pizza Sauce",
+        "Ketchup": "Ketchup",
+        "Chili": "Chili",
+        "Mayonnaise": "Mayonnaise",
+        "Pulled Pork": "Pulled Pork",
+        "Crabstick": "Crabstick",
+        "Ham": "Ham",
+        "Sausage": "Sausage",
+        "Egg": "Egg",
+        "Spinach": "Spinach",
+        "Cheese": "Cheese",
+        "welcome-heading": "Welcome to Our Crepe Shop"
     },
     "th": {
         "nav-home": "หน้าหลัก",
@@ -56,7 +69,6 @@
         "banner-text": "แบนเนอร์",
         "title": "สร้างเครปของคุณเอง",
         "dropdownDefault": "เลือกตัวเลือก",
-
         "choose-sauce-btn": "เลือกซอส",
         "choose-filling-btn": "เลือกไส้",
         "choose-topping-btn": "เลือกท็อปปิ้ง",
@@ -95,6 +107,19 @@
         "welcome-text": "ยินดีต้อนรับสู่ร้านเครปของเรา! เรามุ่งมั่นให้บริการลูกค้าด้วยความเอาใจใส่และเคารพ พร้อมทั้งทำเครปด้วยความรัก เพื่อมอบประสบการณ์ที่ดีที่สุดให้กับทุกท่าน",
         "what-crepe": "คุณต้องการเครปแบบไหน?",
         "sweet-crepe": "หวาน",
-        "savory-crepe": "รสชาติ"
+        "savory-crepe": "รสชาติ",
+        "Chili Sauce": "ซอสพริก",
+        "Pizza Sauce": "ซอสพิซซ่า",
+        "Ketchup": "ซอสมะเขือเทศ",
+        "Chili": "พริก",
+        "Mayonnaise": "มายองเนส",
+        "Pulled Pork": "หมูฉีก",
+        "Crabstick": "ปูอัด",
+        "Ham": "แฮม",
+        "Sausage": "ไส้กรอก",
+        "Egg": "ไข่",
+        "Spinach": "ผักขม",
+        "Cheese": "ชีส",
+        "welcome-heading": "ยินดีต้อนรับสู่ร้านเครปของเรา"
     }
 }

@@ -172,15 +172,28 @@ $(document).ready(function() {
     });
 
     $("#hide-photo").click(function() {
-        selections = { sauce: null, filling: null, topping: null };
+        // Reset all selections
+        selections = { type: null, sauce: null, filling: null, topping: null };
+        
+        // Hide result image and hide photo button
         $("#result-img").hide();
+        $("#hide-photo").hide();
+        
+        // Reset all selected text displays
         $("#selected-sauce").text(translations.none || "None");
         $("#selected-filling").text(translations.none || "None");
         $("#selected-topping").text(translations.none || "None");
         $("#error-message").text("");
-        $("#hide-photo").hide();
+        
+        // Remove any dropdowns
         $(".form-select").remove();
-        $("#make-crepe").show();  // Show the "Make a Crepe" button again
+        
+        // Show the make crepe button
+        $("#make-crepe").show();
+        
+        // Hide the main content and show type selection
+        $("#main-content").hide();
+        $("#type-selection").show();
     });
     
     function updateContent() {
@@ -200,7 +213,7 @@ $(document).ready(function() {
             welcomeText.textContent = translations['welcome-text'];
         }
 
-        // Update address section
+        // Update address section - only on contact page
         const addressTitle = document.getElementById('address-title');
         const addressLine1 = document.getElementById('address-line1');
         const addressLine2 = document.getElementById('address-line2');
@@ -211,10 +224,16 @@ $(document).ready(function() {
         if (addressLine2) addressLine2.textContent = translations['address-line2'];
         if (addressLine3) addressLine3.textContent = translations['address-line3'];
 
-        // Update location heading
-        const locationHeading = document.querySelector('h1');
+        // Update location heading - only on contact page
+        const locationHeading = document.getElementById('location-heading');
         if (locationHeading) {
             locationHeading.textContent = translations['location-heading'];
+        }
+
+        // Update welcome heading
+        const welcomeHeading = document.getElementById('welcome-heading');
+        if (welcomeHeading && translations['welcome-heading']) {
+            welcomeHeading.textContent = translations['welcome-heading'];
         }
     }
 });
