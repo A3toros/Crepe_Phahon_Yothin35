@@ -146,9 +146,9 @@ h1 {
 .menu-table {
     background-color: #ffebee;
     width: 100%;
-    margin-bottom: 2rem;
-    border-collapse: collapse;
-    border-spacing: 0;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+
 }
 
 .menu-table th,
@@ -197,3 +197,30 @@ h1 {
 .highlight-cell {
     font-weight: bold;
 }
+
+
+
+/* Add borders only to specific elements - outside edges only */
+#menu-condensed-milk, #menu-caramel, #menu-honey, #menu-chocolate2, 
+#menu-strawberry2, #menu-no-sauce, #menu-tomato, #menu-chili-sauce, #menu-mayonnaise, 
+#menu-maggie-soy, #menu-black-pepper,  #menu-oregano {
+    border: none;
+    border-left: 2px solid #bba0ec;
+}
+
+#menu-tomato, #menu-chili-sauce, #menu-mayonnaise, 
+#menu-maggie-soy, #menu-black-pepper,  #menu-oregano {
+    border: none;
+    border-right: 2px solid #bba0ec;
+}
+
+
+
+
+
+/* Add bottom borders to last elements in each column */
+#menu-no-sauce, #menu-oregano {
+    border-bottom: 2px solid #bba0ec;
+}
+
+

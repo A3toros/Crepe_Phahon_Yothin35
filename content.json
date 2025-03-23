@@ -112,7 +112,8 @@
         "menu-blueberry": "Blueberry",
         "menu-golden-thread": "Golden thread",
         "menu-pulled-pork": "Pulled Pork",
-        "menu-strawberry": "Strawberry",
+        "menu-strawberry1": "Strawberry",
+        "menu-strawberry2": "Strawberry",
         "menu-marshmallow": "Marshmallow",
         "menu-crabsticks": "Crabsticks",
         "menu-orange": "Orange",
@@ -121,7 +122,8 @@
         "menu-vanilla": "Vanilla",
         "menu-rainbow-sprinkles": "Rainbow Sprinkles",
         "menu-sausage": "Sausage",
-        "menu-chocolate": "Chocolate",
+        "menu-chocolate1": "Chocolate",
+        "menu-chocolate2": "Chocolate",
         "menu-peanut-butter": "Peanut butter",
         "menu-egg": "Egg",
         "menu-banana-cream": "Banana cream",
@@ -137,7 +139,7 @@
         "menu-banana": "Banana",
         "menu-cheese": "Cheese",
         "menu-cashew-nuts": "Cashew Nuts",
-        "menu-sauces-free": "Sauces, free",
+        "menu-sauces-free": "Sauces, free of charge",
         "menu-almond": "Almond",
         "menu-condensed-milk": "Condensed milk",
         "menu-tomato": "Tomato",
@@ -152,7 +154,8 @@
         "menu-black-pepper": "Black Pepper",
         "menu-white-chocolate-chips": "White Chocolate Chips",
         "menu-no-sauce": "No Sauce",
-        "menu-oregano": "Oregano"
+        "menu-oregano": "Oregano",
+        "menu-chili-sauce": "Chili"
     },
     "th": {
         "nav-home": "หน้าหลัก",
@@ -266,7 +269,8 @@
         "menu-blueberry": "บลูเบอร์รี่",
         "menu-golden-thread": "ฝอยทอง",
         "menu-pulled-pork": "หมูฉีก",
-        "menu-strawberry": "สตรอว์เบอร์รี่",
+        "menu-strawberry1": "สตรอว์เบอร์รี่",
+        "menu-strawberry2": "สตรอว์เบอร์รี่",
         "menu-marshmallow": "มาร์ชเมลโลว์",
         "menu-crabsticks": "ปูอัด",
         "menu-orange": "ส้ม",
@@ -275,7 +279,8 @@
         "menu-vanilla": "วานิลลา",
         "menu-rainbow-sprinkles": "สเปรย์น้ำตาลหลากสี",
         "menu-sausage": "ไส้กรอก",
-        "menu-chocolate": "ช็อกโกแลต",
+        "menu-chocolate1": "ช็อกโกแลต",
+        "menu-chocolate2": "ช็อกโกแลต",
         "menu-peanut-butter": "เนยถั่ว",
         "menu-egg": "ไข่",
         "menu-banana-cream": "ครีมกล้วย",
@@ -306,6 +311,7 @@
         "menu-black-pepper": "พริกไทยดำ",
         "menu-white-chocolate-chips": "ช็อกโกแลตชิพขาว",
         "menu-no-sauce": "ไม่ใส่ซอส",
-        "menu-oregano": "ออริกาโน"
+        "menu-oregano": "ออริกาโน",
+        "menu-chili-sauce": "พริก"
     }
 }

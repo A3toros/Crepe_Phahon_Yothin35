@@ -364,4 +364,38 @@ $(document).ready(function() {
 
     // Reapply on window resize
     $(window).resize(centerGalleryImages);
+
+    // Add bottom margin to Make Your Own Crepe section
+    document.addEventListener('DOMContentLoaded', function() {
+        // Apply margins to main content and ingredient selection
+        const mainContent = document.getElementById('main-content');
+        const ingredientSelection = document.getElementById('ingredient-selection');
+        
+        if (mainContent) {
+            mainContent.style.marginBottom = '20vh';
+        }
+        
+        if (ingredientSelection) {
+            ingredientSelection.style.marginBottom = '20vh';
+        }
+        
+        // Apply margins to menu sweet and savory sections
+        const menuSweet = document.getElementById('menu-sweet');
+        const menuSavory = document.getElementById('menu-savory');
+        
+        if (menuSweet) {
+            menuSweet.style.marginBottom = '20vh';
+        }
+        
+        if (menuSavory) {
+            menuSavory.style.marginBottom = '20vh';
+        }
+        
+        // Apply margins to menu table
+        const menuTable = document.querySelector('.menu-table');
+        if (menuTable) {
+            menuTable.style.marginTop = '5rem';
+            menuTable.style.marginBottom = '5rem';
+        }
+    });
 });
