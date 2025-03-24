@@ -124,7 +124,7 @@ h1 {
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
 }
 
 .address-info h3 {
@@ -221,4 +221,27 @@ h1 {
     border-bottom: 2px solid #bba0ec;
 }
 
+#social_media {
+    text-align: center;
+    margin: 1%;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.social_media_photo {
+    margin-top: 2%;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+.social_media_photo a { 
+    text-decoration: none;
+    outline: none;
+}
+.social_media_photo a img {
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 15vh;
+    object-fit: contain;
+    width: auto;
+}
 

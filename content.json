@@ -155,7 +155,8 @@
         "menu-white-chocolate-chips": "White Chocolate Chips",
         "menu-no-sauce": "No Sauce",
         "menu-oregano": "Oregano",
-        "menu-chili-sauce": "Chili"
+        "menu-chili-sauce": "Chili",
+        "social_media": "Add us on Social Media"
     },
     "th": {
         "nav-home": "หน้าหลัก",
@@ -312,6 +313,7 @@
         "menu-white-chocolate-chips": "ช็อกโกแลตชิพขาว",
         "menu-no-sauce": "ไม่ใส่ซอส",
         "menu-oregano": "ออริกาโน",
-        "menu-chili-sauce": "พริก"
+        "menu-chili-sauce": "พริก",
+        "social_media": "เพิ่มเราบนโซเชียลมีเดีย"
     }
 }

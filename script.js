@@ -302,11 +302,13 @@ $(document).ready(function() {
         const addressLine1 = document.getElementById('address-line1');
         const addressLine2 = document.getElementById('address-line2');
         const addressLine3 = document.getElementById('address-line3');
+        const social_media = document.getElementById('social_media');
         
         if (addressTitle) addressTitle.textContent = translations['address-title'];
         if (addressLine1) addressLine1.textContent = translations['address-line1'];
         if (addressLine2) addressLine2.textContent = translations['address-line2'];
         if (addressLine3) addressLine3.textContent = translations['address-line3'];
+        if (social_media) social_media.textContent = translations['social_media'];
 
         // Update location heading - only on contact page
         const locationHeading = document.getElementById('location-heading');

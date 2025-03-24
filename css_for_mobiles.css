@@ -404,6 +404,13 @@
     .menu-table tr:nth-child(-n+5) {
         font: 12px;
     }
+    .social_media_photo a img {
+        margin-left: 2%;
+        margin-right: 2%;
+        height: 10vh;
+        object-fit: contain;
+        width: auto;
+    }
 }
 
 
