@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://a3toros.github.io/Crepe_Phahon_Yothin35/</loc>
+    <lastmod>2025-06-18</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- About / main sections -->
+  <url>
+    <loc>https://a3toros.github.io/Crepe_Phahon_Yothin35/make_your_own_crepe.html</loc>
+    <lastmod>2025-06-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://a3toros.github.io/Crepe_Phahon_Yothin35/gallery.html</loc>
+    <lastmod>2025-06-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://a3toros.github.io/Crepe_Phahon_Yothin35/contact_us.html</loc>
+    <lastmod>2025-06-18</lastmod>
+    <priority>0.64</priority>
+  </url>
+
+  <!-- Assets and data (should you want to expose content.json to search) -->
+  <url>
+    <loc>https://a3toros.github.io/Crepe_Phahon_Yothin35/content.json</loc>
+    <lastmod>2025-06-18</lastmod>
+    <priority>0.32</priority>
+  </url>
+
+</urlset>
