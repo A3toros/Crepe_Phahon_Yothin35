@@ -25,11 +25,4 @@
     <priority>0.64</priority>
   </url>
 
-  <!-- Assets and data (should you want to expose content.json to search) -->
-  <url>
-    <loc>https://a3toros.github.io/Crepe_Phahon_Yothin35/content.json</loc>
-    <lastmod>2025-06-18</lastmod>
-    <priority>0.32</priority>
-  </url>
-
 </urlset>
