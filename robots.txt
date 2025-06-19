@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://a3toros.github.io/Crepe_Phahon_Yothin35/sitemap.xml
