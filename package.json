@@ -21,9 +21,9 @@
   },
   "dependencies": {
     "@netlify/functions": "^5.0.0",
-    "@supabase-js/source": "github:supabase/supabase-js",
     "@supabase/supabase-js": "2.47.10",
     "@tanstack/react-query": "5.51.1",
+    "framer-motion": "^12.23.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.26.2"
@@ -40,6 +40,6 @@
     "tailwindcss": "3.4.10",
     "terser": "^5.44.0",
     "typescript": "^5.5.4",
-    "vite": "5.4.1"
+    "vite": "^5.4.1"
   }
 }
