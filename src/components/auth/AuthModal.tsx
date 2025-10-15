@@ -20,7 +20,8 @@ export function AuthModal({ ctrl }: { ctrl: ReturnType<typeof useAuthModal> }) {
   const { showNotification } = useNotificationContext();
   const { sendEmailConfirmation, loading: emailLoading } = useEmail();
 
-  async function onSubmit() {
+  async function onSubmit(e?: React.FormEvent) {
+    if (e) e.preventDefault();
     setLoading(true); setError(undefined);
     try {
       if (mode === 'signUp') {
@@ -68,7 +69,14 @@ export function AuthModal({ ctrl }: { ctrl: ReturnType<typeof useAuthModal> }) {
         ctrl.hide();
       }
     } catch (e: any) {
-      setError(e?.message || 'Authentication failed');
+      const message: string = e?.message || 'Authentication failed';
+      if (typeof e === 'object' && e && ('status' in e) && (e as any).status === 429) {
+        setError('Too many requests. Please wait a minute and try again.');
+      } else if (/rate limit/i.test(message)) {
+        setError('Too many requests. Please wait a minute and try again.');
+      } else {
+        setError(message);
+      }
     } finally { setLoading(false); }
   }
 
@@ -104,16 +112,16 @@ export function AuthModal({ ctrl }: { ctrl: ReturnType<typeof useAuthModal> }) {
 
   return (
     <Popup ctrl={ctrl} title={mode === 'signIn' ? 'Sign in' : 'Sign up'}>
-      <div className="space-y-3">
+      <form className="space-y-3" onSubmit={onSubmit}>
         <div className="flex gap-2">
           <Button variant={mode==='signIn'?'primary':'secondary'} onClick={()=>setMode('signIn')}>Sign in</Button>
           <Button variant={mode==='signUp'?'primary':'secondary'} onClick={()=>setMode('signUp')}>Sign up</Button>
         </div>
         {mode==='signUp' && (
-          <input className="w-full border rounded px-3 py-2" placeholder="Display name" value={displayName} onChange={e=>setDisplayName(e.target.value)} />
+          <input className="w-full border rounded px-3 py-2" placeholder="Display name" value={displayName} onChange={e=>setDisplayName(e.target.value)} autoComplete="name" />
         )}
-        <input className="w-full border rounded px-3 py-2" placeholder="Email" type="email" value={email} onChange={e=>setEmail(e.target.value)} />
-        <input className="w-full border rounded px-3 py-2" placeholder="Password" type="password" value={password} onChange={e=>setPassword(e.target.value)} />
+        <input className="w-full border rounded px-3 py-2" placeholder="Email" type="email" value={email} onChange={e=>setEmail(e.target.value)} autoComplete="email" />
+        <input className="w-full border rounded px-3 py-2" placeholder="Password" type="password" value={password} onChange={e=>setPassword(e.target.value)} autoComplete={mode==='signIn' ? 'current-password' : 'new-password'} />
         {error && <div className="text-sm text-red-600">{error}</div>}
         {showResend && (
           <div className="text-center">
@@ -124,10 +132,10 @@ export function AuthModal({ ctrl }: { ctrl: ReturnType<typeof useAuthModal> }) {
           </div>
         )}
         <div className="flex justify-end gap-2">
-          <Button onClick={onSubmit} disabled={loading}>{loading ? '...' : (mode==='signIn'?'Sign in':'Sign up')}</Button>
-          <button className="rounded bg-primary px-4 py-2 text-white" onClick={()=>ctrl.hide()}>Cancel</button>
+          <Button type="submit" disabled={loading}>{loading ? '...' : (mode==='signIn'?'Sign in':'Sign up')}</Button>
+          <button type="button" className="rounded bg-primary px-4 py-2 text-white" onClick={()=>ctrl.hide()}>Cancel</button>
         </div>
-      </div>
+      </form>
     </Popup>
   );
 }

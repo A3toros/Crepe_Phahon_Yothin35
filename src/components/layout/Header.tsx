@@ -32,14 +32,23 @@ const content = {
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [signedIn, setSignedIn] = useState(false);
+  const [userRole, setUserRole] = useState<string | undefined>(undefined);
   const { language, setLanguage } = useLanguage();
   const auth = useAuthModal();
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setSignedIn(!!data.session));
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => setSignedIn(!!session));
+    supabase.auth.getSession().then(({ data }) => {
+      setSignedIn(!!data.session);
+      const metaRole = data.session?.user?.app_metadata?.role as string | undefined;
+      setUserRole(metaRole);
+    });
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
+      setSignedIn(!!session);
+      const metaRole = session?.user?.app_metadata?.role as string | undefined;
+      setUserRole(metaRole);
+    });
     return () => { sub?.subscription.unsubscribe(); };
   }, []);
 
@@ -62,6 +71,8 @@ export function Header() {
       {t(labelKey)}
     </NavLink>
   );
+
+  // Admin access is determined by Supabase user.app_metadata.role === 'admin'
 
   return (
     <header className="bg-purple-600 shadow-lg relative">
@@ -126,15 +137,17 @@ export function Header() {
 
       {/* Mobile Menu Dropdown */}
       {menuOpen && (
-        <div ref={menuRef} className="md:hidden absolute top-full right-2 mt-2 bg-white text-gray-800 border border-gray-200 rounded-lg shadow-xl p-3 space-y-2 z-50 w-48">
+        <div ref={menuRef} className="md:hidden absolute top-full right-2 mt-2 bg-white text-gray-800 border border-gray-200 rounded-lg shadow-xl p-3 space-y-2 z-50 w-56">
           {signedIn ? (
             <>
               <NavLink to="/cabinet" onClick={() => setMenuOpen(false)} className="block px-2 py-1 rounded hover:bg-gray-100">
                 {t('cabinet')}
               </NavLink>
-              <NavLink to="/admin" onClick={() => setMenuOpen(false)} className="block px-2 py-1 rounded hover:bg-gray-100">
-                {t('admin')}
-              </NavLink>
+              {userRole === 'admin' && (
+                <NavLink to="/admin" onClick={() => setMenuOpen(false)} className="block px-2 py-1 rounded hover:bg-gray-100">
+                  {t('admin')}
+                </NavLink>
+              )}
               <button className="block w-full text-left px-2 py-1 rounded hover:bg-gray-100" onClick={async () => { setMenuOpen(false); await supabase.auth.signOut(); }}>
                 {t('log-out')}
               </button>
