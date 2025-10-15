@@ -27,7 +27,24 @@ export const handler: Handler = async (event) => {
   }
 
   try {
+    const origin = event.headers?.origin || event.headers?.referer || '';
+    const hasKey = !!process.env.BREVO_API_KEY;
+    const maskedKey = (process.env.BREVO_API_KEY || '').slice(0, 4) + '***';
+    console.log('[send-email] request', {
+      method: event.httpMethod,
+      origin,
+      hasKey,
+      keyPreview: hasKey ? maskedKey : 'missing'
+    });
+
     const emailData = JSON.parse(event.body || '{}');
+    console.log('[send-email] payload fields', {
+      to: !!emailData.to,
+      subject: !!emailData.subject,
+      html: !!emailData.html,
+      from: emailData.from,
+      fromName: emailData.fromName
+    });
 
     if (!emailData.to || !emailData.subject || !emailData.html) {
       return { statusCode: 400, headers: textHeaders, body: 'Missing required fields' };
@@ -39,10 +56,16 @@ export const handler: Handler = async (event) => {
       return { statusCode: 500, headers: textHeaders, body: 'Email service not configured' };
     }
 
+    // Use proper domain for sender
+    const senderEmail = emailData.from || process.env.BREVO_SENDER_EMAIL || 'noreply@crepephahonyothin35.netlify.app';
+    const senderName = emailData.fromName || process.env.BREVO_SENDER_NAME || 'Crepe Phahon Yothin35';
+    
+    console.log('[send-email] sender config', { senderEmail, senderName });
+    
     const emailPayload = {
       sender: {
-        name: emailData.fromName || 'Crepe Phahon Yothin35',
-        email: emailData.from || process.env.EMAIL_FROM || 'noreply@crepephahonyothin35.netlify.app',
+        name: senderName,
+        email: senderEmail,
       },
       to: [
         {
@@ -54,8 +77,8 @@ export const handler: Handler = async (event) => {
       htmlContent: emailData.html,
       textContent: emailData.text || '',
       replyTo: {
-        email: emailData.from || process.env.EMAIL_FROM || 'noreply@crepephahonyothin35.netlify.app',
-        name: emailData.fromName || 'Crepe Phahon Yothin35',
+        email: senderEmail,
+        name: senderName,
       },
     };
 
@@ -70,12 +93,13 @@ export const handler: Handler = async (event) => {
     });
 
     if (!resp.ok) {
-      const error = await resp.text();
-      console.error('Brevo API error:', error);
-      return { statusCode: 500, headers: jsonHeaders, body: JSON.stringify({ success: false, error }) };
+      const errorText = await resp.text();
+      console.error('Brevo API error:', resp.status, errorText);
+      return { statusCode: resp.status, headers: jsonHeaders, body: JSON.stringify({ success: false, status: resp.status, error: errorText }) };
     }
 
     const result = await resp.json();
+    console.log('[send-email] success', { messageId: result.messageId });
 
     return {
       statusCode: 200,
@@ -84,7 +108,7 @@ export const handler: Handler = async (event) => {
     };
   } catch (error: any) {
     console.error('Email service error:', error?.message || error);
-    return { statusCode: 500, headers: textHeaders, body: 'Internal server error' };
+    return { statusCode: 500, headers: jsonHeaders, body: JSON.stringify({ success: false, error: error?.message || String(error) }) };
   }
 };
 
