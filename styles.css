@@ -1,0 +1,250 @@
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: #6f42c1;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-logo {
+    height: 50px;
+    margin-right: 2rem;
+}
+
+.navbar-nav {
+    margin-right: auto;
+}
+
+.nav-link {
+    color: white;
+    font-size: 1.1rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar a {
+    color: white !important;
+    padding: 10px;
+    margin: 5px;
+}
+
+.banner img {
+    position:relative;
+    height: 200px;
+    background: gray;
+    width: 100%;
+    text-align: center;
+    line-height: 20vh;
+    font-size: 24px;
+    color: white;
+    object-fit: cover;
+}
+
+.crepe-table {
+    margin-top: 20px;
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.crepe-img {
+    display: none;
+}
+
+.flag-icon {
+    width: 24px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.lang-btn {
+    color: black;
+}
+#crepe-image {
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#crepe-image button {
+    display: block;
+    margin: 10px auto;
+    width: 200px;
+}
+
+#crepe-image p {
+    margin: 10px auto;
+    text-align: center;
+}
+
+#result-img {
+    max-width: 100%;
+    height: auto;
+    display: none;
+    margin: 20px auto;
+}
+
+.map-container {
+    position: relative;
+    width: 80%;
+    height: 50vh;
+    margin: 20px auto;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    z-index: 1;
+}
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.address-info {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+
+}
+
+.address-info h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.address-info p {
+    color: #666;
+    line-height: 1.6;
+}
+#menu-title {
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+
+.menu-table {
+    background-color: #ffebee;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+.menu-table th,
+.menu-table td {
+    padding: 0.5rem;
+    text-align: left;
+    border: 1px solid #e8d2f5d8;
+    font-size: 1.1rem;
+    background-color: #d9e1f5;
+    margin: 0;
+}
+
+.menu-table th {
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-color: #8cbcf3;
+}
+
+/* Make first 5 rows bold */
+.menu-table tr:nth-child(-n+5) {
+    font-weight: bold;
+    background-color: #5a9eec;
+}
+
+/* Full width rows */
+.menu-table tr.full-width td {
+    width: 100%;
+}
+
+/* Regular rows */
+.menu-table tr:not(.full-width) td:last-child {
+    text-align: right;
+}
+
+/* Table container */
+.table-container {
+    overflow-x: auto;
+}
+
+/* Make text more readable */
+.menu-table td {
+    line-height: 1.4;
+}
+
+/* Highlight cell for free items */
+.highlight-cell {
+    font-weight: bold;
+}
+
+
+
+/* Add borders only to specific elements - outside edges only */
+#menu-condensed-milk, #menu-caramel, #menu-honey, #menu-chocolate2, 
+#menu-strawberry2, #menu-no-sauce, #menu-tomato, #menu-chili-sauce, #menu-mayonnaise, 
+#menu-maggie-soy, #menu-black-pepper,  #menu-oregano {
+    border: none;
+    border-left: 2px solid #bba0ec;
+}
+
+#menu-tomato, #menu-chili-sauce, #menu-mayonnaise, 
+#menu-maggie-soy, #menu-black-pepper,  #menu-oregano {
+    border: none;
+    border-right: 2px solid #bba0ec;
+}
+
+
+
+
+
+/* Add bottom borders to last elements in each column */
+#menu-no-sauce, #menu-oregano {
+    border-bottom: 2px solid #bba0ec;
+}
+
+#social_media {
+    text-align: center;
+    margin: 1%;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.social_media_photo {
+    margin-top: 2%;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+.social_media_photo a { 
+    text-decoration: none;
+    outline: none;
+}
+.social_media_photo a img {
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 15vh;
+    object-fit: contain;
+    width: auto;
+}
+#welcome-text {
+    text-indent: 50px;
+}
+

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://crepephahon.com/sitemap.xml
+
+# Disallow admin and cabinet areas
+Disallow: /admin
+Disallow: /cabinet
+Disallow: /api/

@@ -1,0 +1,21 @@
+Welcome to Crepe Phahon Yothin35!
+
+Thank you for joining our community! We're excited to have you as part of the Crepe Phahon Yothin35 family.
+
+To complete your registration and start ordering our delicious crepes, please confirm your email address by clicking the link below:
+
+{{ .ConfirmationURL }}
+
+This confirmation link will expire in 24 hours for your security.
+
+If you didn't create an account with us, please ignore this email.
+
+---
+Crepe Phahon Yothin35
+Authentic Thai Crepes • Fresh Daily • Made with Love
+📍 Location: [Your Address]
+📞 Phone: [Your Phone]
+🌐 Website: crepephahonyothin35.netlify.app
+
+This email was sent to {{ .Email }}. If you have any questions, please contact us.
+© 2024 Crepe Phahon Yothin35. All rights reserved.
